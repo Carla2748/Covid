@@ -81,10 +81,8 @@ SELECT cc.continent											AS Continent
 	,cc.[location]											AS Country
 	,SUM(CAST(cc.new_cases AS float))						AS NewCases
 	,SUM(CAST(cc.new_deaths AS float))						AS NewDeaths
-	,CASE WHEN SUM(CAST(cc.hosp_patients AS float))	= '0' 	
-	THEN 'NA' ELSE SUM(CAST(cc.hosp_patients AS float)) END AS HopsitalizedPatients
-	,CASE WHEN SUM(CAST(cc.icu_patients AS float)) = '0' 			
-	THEN 'NA' ELSE SUM(CAST(cc.icu_patients AS float)) END	AS ICUPatients
+	,SUM(CAST(cc.hosp_patients AS float))					AS HopsitalizedPatients
+	,SUM(CAST(cc.icu_patients AS float))					AS ICUPatients
 	,cp.population											AS Population
 	,cp.population_density									AS Density
 	,cp.diabetes_prevalence 								AS DiabetesPrevalence
